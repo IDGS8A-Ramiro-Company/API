@@ -20,7 +20,7 @@ Route::prefix('api/v1')->group(function () {
     Route::post('/groups',[GroupController::class,'create'])->name('group.create');
     Route::get('/groups',[GroupController::class,'showAll'])->name('group.showAll');
     Route::get('/groups/{groupId}',[GroupController::class,'getCoursesGroup'])->name('group.getCoursesGroup');
-    Route::put('/groups/{groupId}',[GroupController::class,'update'])->name('group.update');
+    Route::put('/groups',[GroupController::class,'update'])->name('group.update');
     Route::post('/partials',[\App\Http\Controllers\PartialController::class,'create'])->name('partial.create');
     Route::post('/courses',[\App\Http\Controllers\CourseController::class,'create'])->name('course.create');
     Route::post('/activities',[\App\Http\Controllers\ActivityController::class,'create'])->name('activity.create');
