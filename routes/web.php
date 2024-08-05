@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('api/v1')->group(function () {
-    Route::get('/groups/students/{groupId}', [GroupController::class, 'getStudentsGroup']);
+    Route::get('/groups/{groupId}/students', [GroupController::class, 'getStudentsGroup']);
     Route::post('/groupStudent',[\App\Http\Controllers\GroupStudentController::class,'create']);
     Route::get('/groupStudent/{student_id}',[\App\Http\Controllers\StudentController::class,'getGroups']);
     Route::post('/auth', [\App\Http\Controllers\AuthController::class, 'login']);
