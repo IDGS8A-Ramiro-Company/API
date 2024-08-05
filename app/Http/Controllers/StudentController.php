@@ -13,4 +13,11 @@ class StudentController extends Controller
         $students = User::where('id_rol', 3)->get();
         return response()->json($students);
     }
+
+    public function getGroups($student_id)
+    {
+        $student = User::findOrFail($student_id);
+        $groups = $student->groups;
+        return response()->json($groups,200);
+    }
 }

@@ -14,6 +14,6 @@ class GroupTeacherController extends Controller
 
     public function create(GroupTeacherRequest $request)
     {
-        
+
     }
 }
