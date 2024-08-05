@@ -19,9 +19,14 @@ class Group extends Model
         return $this->hasMany(Group_Student::class,'group_id','id');
     }
 
+    public function teacherGroup()
+    {
+        return $this->hasMany(GroupTeacher::class,'group_id','id');
+    }
+
     public function student()
     {
-        return $this->belongsToMany(Student::class,'group_students','group_id','student_id');
+        return $this->belongsToMany(Student::class,'group_students','group_id','user_id');
     }
 
     public function teacher()
@@ -46,6 +51,7 @@ class Group extends Model
             });
             $group->courses()->delete();
             $group->studentGroup()->delete();
+            $group->teacherGroup()->delete();
         });
     }
 }

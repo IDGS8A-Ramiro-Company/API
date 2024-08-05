@@ -42,6 +42,13 @@ class GroupController extends Controller
         return response()->json($group, 200);
     }
 
+    public function getStudentsGroup($groupId)
+    {
+        $group = Group::findOrFail($groupId);
+        $students = $group->students;
+        return response()->json($students,200);
+    }
+
     public function showAll()
     {
         $group = Group::all();
