@@ -14,7 +14,7 @@ class GroupController extends Controller
 
     public function update(Request $request)
     {
-        $group = Group::finfOrFail($request->id);
+        $group = Group::findOrFail($request->id);
         $group->name=$request->name;
         $group->description = $request->description;
         $group->save();
