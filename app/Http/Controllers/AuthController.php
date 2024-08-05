@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,5 +24,11 @@ class AuthController extends Controller
             'success' => false,
             'message' => 'Invalid credentials',
         ], 401);
+    }
+
+    public function register(RegisterRequest $request)
+    {
+        $user = User::create($request->validated());
+        return response()->json($user, 200);
     }
 }
