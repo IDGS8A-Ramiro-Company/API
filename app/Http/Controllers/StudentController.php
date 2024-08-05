@@ -11,6 +11,6 @@ class StudentController extends Controller
     public function getStudents()
     {
         $students = User::all()->where('id_rol', 3);
-        return response()->json($students,200);
+        return response()->json($students);
     }
 }
