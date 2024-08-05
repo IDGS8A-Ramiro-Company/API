@@ -16,6 +16,7 @@ class GroupStudentController extends Controller
     public function create(GroupStudentRequest $request)
     {
         $groupStudent = Group_Student::create($request->validated());
+        $groupStudent->save();
         return response()->json('success',200);
     }
 }
