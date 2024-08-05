@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('api/v1')->group(function () {
     Route::get('/groups/{groupId}/students', [GroupController::class, 'getStudentsGroup']);
     Route::post('/groupStudent',[\App\Http\Controllers\GroupStudentController::class,'create']);
-    Route::get('/groupStudent/{student_id}',[\App\Http\Controllers\StudentController::class,'getGroups']);
+    Route::get('/students/{student_id}/groups',[\App\Http\Controllers\StudentController::class,'getGroups']);
     Route::post('/auth', [\App\Http\Controllers\AuthController::class, 'login']);
     Route::delete('/auth', [\App\Http\Controllers\AuthController::class, 'delete']);
     Route::put('/auth', [\App\Http\Controllers\AuthController::class, 'update']);
@@ -29,7 +29,7 @@ Route::prefix('api/v1')->group(function () {
     Route::get('/groups/{groupId}',[GroupController::class,'getCoursesGroup'])->name('group.getCoursesGroup');
     Route::put('/groups',[GroupController::class,'update'])->name('group.update');
     Route::post('/partials',[\App\Http\Controllers\PartialController::class,'create'])->name('partial.create');
-    Route::get('/partialActivities/{partial_id}',[\App\Http\Controllers\PartialController::class,'getActivities']);
+    Route::get('/partials/{partial_id}/activities',[\App\Http\Controllers\PartialController::class,'getActivities']);
     Route::post('/courses',[\App\Http\Controllers\CourseController::class,'create'])->name('course.create');
     Route::post('/activities',[\App\Http\Controllers\ActivityController::class,'create'])->name('activity.create');
     Route::get('/students',[\App\Http\Controllers\StudentController::class,'getStudents'])->name('students.getStudents');
