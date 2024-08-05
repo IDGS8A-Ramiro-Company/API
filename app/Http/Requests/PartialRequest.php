@@ -25,7 +25,7 @@ class PartialRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'curso_id' => 'required',
+            'course_id' => 'required',
         ];
     }
 }
