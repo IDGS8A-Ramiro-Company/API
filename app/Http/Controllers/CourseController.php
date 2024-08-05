@@ -23,4 +23,12 @@ class CourseController extends Controller
         $course = Course::create($request->validated());
         return response()->json($course, 200);
     }
+
+    public function update(CourseRequest $request, $course_id)
+    {
+        $course = Course::findOrFail($course_id);
+        $course->update($request->validated());
+        $course->save();
+        return response()->json($course, 200);
+    }
 }

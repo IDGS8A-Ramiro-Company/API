@@ -31,7 +31,9 @@ Route::prefix('api/v1')->group(function () {
     Route::post('/partials',[\App\Http\Controllers\PartialController::class,'create'])->name('partial.create');
     Route::get('/partials/{partial_id}/activities',[\App\Http\Controllers\PartialController::class,'getActivities']);
     Route::post('/courses',[\App\Http\Controllers\CourseController::class,'create'])->name('course.create');
-    Route::get('/courses',[\App\Http\Controllers\CourseController::class,'show'])->name('course.create');
+    Route::get('/courses',[\App\Http\Controllers\CourseController::class,'show'])->name('course.show');
+    Route::put('/courses/{id}',[\App\Http\Controllers\CourseController::class,'update'])->name('course.update');
     Route::post('/activities',[\App\Http\Controllers\ActivityController::class,'create'])->name('activity.create');
     Route::get('/students',[\App\Http\Controllers\StudentController::class,'getStudents'])->name('students.getStudents');
+    Route::get('/teachers',[\App\Http\Controllers\TeacherController::class,'getTeachers'])->name('students.getTeachers');
 });
