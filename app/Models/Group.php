@@ -14,6 +14,11 @@ class Group extends Model
         'description',
     ];
 
+    public function studentGroup()
+    {
+        return $this->hasMany(Group_Student::class,'group_id','id');
+    }
+
     public function student()
     {
         return $this->belongsToMany(Student::class,'group_students','group_id','student_id');
@@ -40,7 +45,7 @@ class Group extends Model
                 $course->partial()->delete();
             });
             $group->courses()->delete();
-            $group->student()->delete();
+            $group->studentGroup()->delete();
         });
     }
 }
