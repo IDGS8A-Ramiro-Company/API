@@ -25,7 +25,8 @@ class ActivityRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'partial_id' => 'required'
         ];
     }
 }
