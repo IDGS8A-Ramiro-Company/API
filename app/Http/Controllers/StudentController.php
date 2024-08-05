@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function getGroups($student_id)
     {
         $student = User::findOrFail($student_id);
-        $groups = $student->groups;
+        $groups = $student->group;
         return response()->json($groups,200);
     }
 }
