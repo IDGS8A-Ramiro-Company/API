@@ -28,4 +28,19 @@ class Group extends Model
     {
         return $this->hasMany(Course::class,'group_id','id');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($group) {
+            $group->courses()->each(function ($course) {
+                $course->partials()->each(function ($partial) {
+                    $partial->activities()->delete();
+                });
+                $course->partials()->delete();
+            });
+            $group->courses()->delete();
+        });
+    }
 }
