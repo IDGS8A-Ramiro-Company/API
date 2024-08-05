@@ -14,10 +14,11 @@ class AuthController extends Controller
     {
         if(Auth::attempt($request->validated(),true)) {
             $user = Auth::user();
-
+            $userauth = User::where('email', $request-> email)->first();
             return response()->json([
                 'success' => true,
-                'remember_token'=>$user->getRememberToken()
+                'remember_token'=>$user->getRememberToken(),
+                'rol'=> $userauth->rol
             ]);
         }
         return response()->json([
