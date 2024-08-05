@@ -32,7 +32,6 @@ class Group extends Model
     protected static function boot()
     {
         parent::boot();
-
         static::deleting(function ($group) {
             $group->courses()->each(function ($course) {
                 $course->partial()->each(function ($partial) {
@@ -41,6 +40,7 @@ class Group extends Model
                 $course->partial()->delete();
             });
             $group->courses()->delete();
+            $group->student()->delete();
         });
     }
 }
