@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('api/v1')->group(function () {
-    Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
+    Route::post('/auth', [\App\Http\Controllers\AuthController::class, 'login']);
     Route::post('/groups',[GroupController::class,'create'])->name('group.create');
     Route::get('/groups',[GroupController::class,'showAll'])->name('group.showAll');
 });
