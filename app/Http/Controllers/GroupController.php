@@ -12,6 +12,15 @@ class GroupController extends Controller
 
     }
 
+    public function update(Request $request)
+    {
+        $group = Group::finfOrFail($request->id);
+        $group->name=$request->name;
+        $group->description = $request->description;
+        $group->save();
+        return response()->json($group,200);
+    }
+
     public function getCoursesGroup($groupId)
     {
         $group = Group::findOrFail($groupId);
@@ -24,11 +33,6 @@ class GroupController extends Controller
         $group = Group::create($request->validated());
 
         return response()->json($group, 200);
-    }
-
-    public function update(GroupRequest $request, Group $group)
-    {
-
     }
 
     public function showAll()
