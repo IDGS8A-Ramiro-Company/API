@@ -12,9 +12,9 @@ class Activity extends Model
     protected $fillable=[
         'partial_id',
         'name',
-        'notes',
-        'group_id',
-        'teacher_id'
+        'description',
+        'grade',
+        'ready'
     ];
 
     public function partial()
