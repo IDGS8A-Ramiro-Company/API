@@ -13,7 +13,7 @@ class Course extends Model
         'name',
         'notes',
         'group_id',
-        'teacher_id',
+        'id_teacher',
     ];
 
     public function group(){
