@@ -19,6 +19,11 @@ class GroupController extends Controller
         return response()->json($group, 200);
     }
 
+    public function update(GroupRequest $request, Group $group)
+    {
+
+    }
+
     public function showAll()
     {
         $group = Group::all();
