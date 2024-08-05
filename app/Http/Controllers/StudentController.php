@@ -10,7 +10,7 @@ class StudentController extends Controller
 {
     public function getStudents()
     {
-        $students = User::all()->where('id_rol', 3);
+        $students = User::where('id_rol', 3)->get();
         return response()->json($students);
     }
 }
