@@ -18,6 +18,7 @@ Route::prefix('api/v1')->group(function () {
     Route::post('/auth', [\App\Http\Controllers\AuthController::class, 'login']);
     Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
     Route::post('/groups',[GroupController::class,'create'])->name('group.create');
+    Route::delete('/groups',[GroupController::class,'delete'])->name('group.delete');
     Route::get('/groups',[GroupController::class,'showAll'])->name('group.showAll');
     Route::get('/groups/{groupId}',[GroupController::class,'getCoursesGroup'])->name('group.getCoursesGroup');
     Route::put('/groups',[GroupController::class,'update'])->name('group.update');

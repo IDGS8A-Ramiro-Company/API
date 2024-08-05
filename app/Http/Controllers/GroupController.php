@@ -12,6 +12,13 @@ class GroupController extends Controller
 
     }
 
+    public function delete(Request $request)
+    {
+        $group = Group::findOrFail($request->id);
+        $group->delete();
+        return response(['success' => true, 'status' => 200]);
+    }
+
     public function update(Request $request)
     {
         $group = Group::findOrFail($request->id);
