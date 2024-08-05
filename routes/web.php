@@ -19,4 +19,5 @@ Route::prefix('api/v1')->group(function () {
     Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
     Route::post('/groups',[GroupController::class,'create'])->name('group.create');
     Route::get('/groups',[GroupController::class,'showAll'])->name('group.showAll');
+    Route::get('/partials',[\App\Http\Controllers\PartialController::class,'create'])->name('partial.create');
 });
