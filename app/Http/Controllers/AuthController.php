@@ -18,7 +18,7 @@ class AuthController extends Controller
             return response()->json([
                 'success' => true,
                 'remember_token'=>$user->getRememberToken(),
-                'rol'=> $userauth
+                'rol'=> $userauth->id_rol
             ]);
         }
         return response()->json([
