@@ -48,4 +48,8 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
+    public function group()
+    {
+        return $this -> belongsToMany('App\Models\Group', 'group_students', 'student_id', 'group_id');
+    }
 }
