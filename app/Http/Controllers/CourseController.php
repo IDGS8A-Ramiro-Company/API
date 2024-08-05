@@ -13,6 +13,11 @@ class CourseController extends Controller
 
     }
 
+    public function show()
+    {
+        return Course::all();
+    }
+
     public function create(CourseRequest $request)
     {
         $course = Course::create($request->validated());
