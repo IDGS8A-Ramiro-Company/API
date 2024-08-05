@@ -35,10 +35,10 @@ class Group extends Model
 
         static::deleting(function ($group) {
             $group->courses()->each(function ($course) {
-                $course->partials()->each(function ($partial) {
-                    $partial->activities()->delete();
+                $course->partial()->each(function ($partial) {
+                    $partial->activity()->delete();
                 });
-                $course->partials()->delete();
+                $course->partial()->delete();
             });
             $group->courses()->delete();
         });
