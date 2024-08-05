@@ -32,4 +32,21 @@ class AuthController extends Controller
         $user = User::create($request->validated());
         return response()->json($user, 200);
     }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return response()->json('success', 200);
+    }
+
+    public function delete(Request $request)
+    {
+        $user=User::findOrFail($request->id);
+        $user->delete();
+        return response()->json('success', 200);
+    }
 }

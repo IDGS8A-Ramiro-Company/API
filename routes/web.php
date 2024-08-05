@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('api/v1')->group(function () {
     Route::post('/auth', [\App\Http\Controllers\AuthController::class, 'login']);
+    Route::delete('/auth', [\App\Http\Controllers\AuthController::class, 'delete']);
+    Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
     Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
     Route::post('/groups',[GroupController::class,'create'])->name('group.create');
     Route::delete('/groups',[GroupController::class,'delete'])->name('group.delete');
