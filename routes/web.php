@@ -25,4 +25,5 @@ Route::prefix('api/v1')->group(function () {
     Route::post('/partials',[\App\Http\Controllers\PartialController::class,'create'])->name('partial.create');
     Route::post('/courses',[\App\Http\Controllers\CourseController::class,'create'])->name('course.create');
     Route::post('/activities',[\App\Http\Controllers\ActivityController::class,'create'])->name('activity.create');
+    Route::get('/students',[\App\Http\Controllers\StudentController::class,'getStudents'])->name('students.getStudents');
 });
