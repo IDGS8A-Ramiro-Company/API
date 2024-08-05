@@ -17,6 +17,6 @@ class GroupStudentController extends Controller
     {
         $groupStudent = Group_Student::create($request->validated());
         $groupStudent->save();
-        return response()->json('success',200);
+        return response()->json(["success" => true, "data" => $groupStudent,"status" => 200]);
     }
 }
