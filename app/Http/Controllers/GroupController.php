@@ -12,6 +12,13 @@ class GroupController extends Controller
 
     }
 
+    public function getCoursesGroup($groupId)
+    {
+        $group = Group::findOrFail($groupId);
+        $courses = $group->courses;
+        return response()->json($courses,200);
+    }
+
     public function create(GroupRequest $request)
     {
         $group = Group::create($request->validated());
