@@ -49,4 +49,12 @@ class AuthController extends Controller
         $user->delete();
         return response()->json('success', 200);
     }
+
+    public function update(Request $request)
+    {
+        $user=User::findOrFail($request->id);
+        $user->name=$request->name;
+        $user->id_rol=$request->id_rol;
+        $user->save();
+    }
 }
