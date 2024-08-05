@@ -45,7 +45,7 @@ class GroupController extends Controller
     public function getStudentsGroup($groupId)
     {
         $group = Group::findOrFail($groupId);
-        $students = $group->students;
+        $students = $group->student;
         return response()->json($students,200);
     }
 
