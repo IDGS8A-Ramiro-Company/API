@@ -21,9 +21,9 @@ class StudentController extends Controller
         return response()->json($groups,200);
     }
 
-    public function update(Request $request, $student_id)
+    public function update(Request $request, $studentId)
     {
-        $student = User::findOrFail($student_id);
+        $student = User::findOrFail($studentId);
         $student->name=$request->name;
         $student->email=$request->email;
         $student->save();
