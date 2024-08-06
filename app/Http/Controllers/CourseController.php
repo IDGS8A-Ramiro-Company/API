@@ -31,4 +31,11 @@ class CourseController extends Controller
         $course->save();
         return response()->json($course, 200);
     }
+
+    public function getPartials($course_id)
+    {
+        $course = Course::findOrFail($course_id);
+        $partials = $course->partial;
+        return response()->json($partials, 200);
+    }
 }
