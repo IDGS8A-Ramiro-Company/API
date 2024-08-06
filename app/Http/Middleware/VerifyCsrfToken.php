@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
         '/api/v1/courses',
         '/api/v1/activities',
         '/api/v1/students',
+        '/api/v1/students/',
         '/api/v1/groupStudent',
         '/api/v1/partialActivities',
         '/api/v1/teachers',
