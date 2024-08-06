@@ -24,10 +24,13 @@ class CourseController extends Controller
         return response()->json($course, 200);
     }
 
-    public function update(CourseRequest $request, $course_id)
+    public function update(Request $request, $course_id)
     {
         $course = Course::findOrFail($request->id);
-        $course->update($request->validated());
+        $course->name = $request->input('name');
+        $course->notes = $request->input('notes');
+        $course->id_teacher=$request->input('id_teacher');
+        $course->group_id=$request->input('group_id');
         $course->save();
         return response()->json($course, 200);
     }
