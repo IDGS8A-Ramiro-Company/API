@@ -39,4 +39,5 @@ Route::prefix('api/v1')->group(function () {
     Route::get('/students',[\App\Http\Controllers\StudentController::class,'getStudents'])->name('students.getStudents');
     Route::put('/students/{id}',[\App\Http\Controllers\StudentController::class,'update']);
     Route::get('/teachers',[\App\Http\Controllers\TeacherController::class,'getTeachers'])->name('students.getTeachers');
+    Route::get('/courses/{id}/progress',[\App\Http\Controllers\CourseController::class,'getProgress'])->name('courses.getProgress');
 });

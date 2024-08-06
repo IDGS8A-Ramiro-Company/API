@@ -41,15 +41,15 @@ class CourseController extends Controller
 
     public function getProgress($courseId)
     {
-        $course = Course::with('partials.activities')->findOrFail($courseId);
+        $course = Course::with('partial.activity')->findOrFail($courseId);
 
         $totalActivities = 0;
         $completedActivities = 0;
 
         foreach ($course->partials as $partial) {
-            foreach ($partial->activities as $activity) {
+            foreach ($partial->activity as $activity) {
                 $totalActivities++;
-                if ($activity->completed) {
+                if ($activity->ready) {
                     $completedActivities++;
                 }
             }
