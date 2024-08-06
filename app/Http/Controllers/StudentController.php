@@ -24,7 +24,8 @@ class StudentController extends Controller
     public function update(Request $request, $student_id)
     {
         $student = User::findOrFail($student_id);
-        $student->update($request->all());
+        $student->name=$request->name;
+        $student->email=$request->email;
         $student->save();
         return response()->json($student, 200);
     }
