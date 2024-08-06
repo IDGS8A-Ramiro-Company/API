@@ -23,10 +23,10 @@ class StudentController extends Controller
 
     public function update(Request $request)
     {
-        //$student = User::findOrFail($request->id);
-        //$student->name=$request->name;
-        //$student->email=$request->email;
-        //$student->save();
+        $student = User::findOrFail($request->id);
+        $student->name=$request->name;
+        $student->email=$request->email;
+        $student->save();
         return response()->json(200);
     }
 }
