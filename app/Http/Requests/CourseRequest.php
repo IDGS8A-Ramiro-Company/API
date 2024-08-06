@@ -24,6 +24,7 @@ class CourseRequest extends FormRequest
     public function rules()
     {
         return [
+            'id'=>'required|exists:courses,id',
             'name' => 'required',
             'notes' => 'required',
             'id_teacher' => 'required',

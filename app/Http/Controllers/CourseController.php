@@ -26,7 +26,7 @@ class CourseController extends Controller
 
     public function update(CourseRequest $request, $course_id)
     {
-        $course = Course::findOrFail($course_id);
+        $course = Course::findOrFail($request->id);
         $course->update($request->validated());
         $course->save();
         return response()->json($course, 200);
@@ -37,5 +37,26 @@ class CourseController extends Controller
         $course = Course::findOrFail($course_id);
         $partials = $course->partial;
         return response()->json($partials, 200);
+    }
+
+    public function getProgress($courseId)
+    {
+        $course = Course::with('partials.activities')->findOrFail($courseId);
+
+        $totalActivities = 0;
+        $completedActivities = 0;
+
+        foreach ($course->partials as $partial) {
+            foreach ($partial->activities as $activity) {
+                $totalActivities++;
+                if ($activity->completed) {
+                    $completedActivities++;
+                }
+            }
+        }
+
+        $progress = $totalActivities > 0 ? ($completedActivities / $totalActivities) * 100 : 0;
+
+        return response()->json(['progress' => $progress]);
     }
 }
