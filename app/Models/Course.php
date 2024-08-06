@@ -25,6 +25,6 @@ class Course extends Model
 
     public function partial()
     {
-        return $this->hasMany(Partial::class);
+        return $this->hasMany(Partial::class, 'course_id','id');
     }
 }
