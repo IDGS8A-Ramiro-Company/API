@@ -36,5 +36,6 @@ Route::prefix('api/v1')->group(function () {
     Route::put('/courses/{id}',[\App\Http\Controllers\CourseController::class,'update'])->name('course.update');
     Route::post('/activities',[\App\Http\Controllers\ActivityController::class,'create'])->name('activity.create');
     Route::get('/students',[\App\Http\Controllers\StudentController::class,'getStudents'])->name('students.getStudents');
+    Route::put('/students/{studentId}',[\App\Http\Controllers\StudentController::class,'update'])->name('students.update');
     Route::get('/teachers',[\App\Http\Controllers\TeacherController::class,'getTeachers'])->name('students.getTeachers');
 });

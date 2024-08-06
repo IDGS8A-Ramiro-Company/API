@@ -20,4 +20,12 @@ class StudentController extends Controller
         $groups = $student->group;
         return response()->json($groups,200);
     }
+
+    public function update(Request $request, $student_id)
+    {
+        $student = User::findOrFail($student_id);
+        $student->update($request->all());
+        $student->save();
+        return response()->json($student, 200);
+    }
 }
