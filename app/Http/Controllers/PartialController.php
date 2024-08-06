@@ -25,4 +25,12 @@ class PartialController extends Controller
         $activities=$partial->activity;
         return response()->json($activities, 200);
     }
+
+    public function update(PartialRequest $request, $parti_id)
+    {
+        $partial = Partial::findOrFail($parti_id);
+        $partial->update($request->validated());
+        $partial->save();
+        return response()->json($partial, 200);
+    }
 }
