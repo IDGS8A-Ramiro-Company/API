@@ -39,5 +39,24 @@ class CourseController extends Controller
         return response()->json($partials, 200);
     }
 
-    
+    public function getProgress($courseId)
+    {
+        $course = Course::with('partial.activity')->findOrFail($courseId);
+
+        $totalActivities = 0;
+        $completedActivities = 0;
+
+        foreach ($course->partials as $partial) {
+            foreach ($partial->activity as $activity) {
+                $totalActivities++;
+                if ($activity->ready) {
+                    $completedActivities++;
+                }
+            }
+        }
+
+        $progress = $totalActivities > 0 ? ($completedActivities / $totalActivities) * 100 : 0;
+
+        return response()->json(['progress' => $progress]);
+    }
 }
