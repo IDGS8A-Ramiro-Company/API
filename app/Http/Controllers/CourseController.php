@@ -62,4 +62,11 @@ class CourseController extends Controller
 
         return response()->json(['progress' => $progress]);
     }
+
+    public function delete(Request $request)
+    {
+        $group = Course::findOrFail($request->id);
+        $group->delete();
+        return response(['success' => true, 'status' => 200]);
+    }
 }

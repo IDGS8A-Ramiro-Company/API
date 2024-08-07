@@ -32,6 +32,7 @@ class GroupController extends Controller
     {
         $group = Group::findOrFail($groupId);
         $courses = $group->courses;
+
         return response()->json($courses,200);
     }
 
