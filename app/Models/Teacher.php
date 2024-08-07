@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Teacher extends Authenticatable
 {
     use HasFactory;
-
+    protected $table = 'users';
     protected $fillable=[
         'Name',
         'EmployeeNumber',
