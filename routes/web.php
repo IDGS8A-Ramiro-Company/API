@@ -32,7 +32,7 @@ Route::prefix('api/v1')->group(function () {
     Route::put('/partials/{partiId}',[\App\Http\Controllers\PartialController::class,'update']);
     Route::get('/partials/{partial_id}/activities',[\App\Http\Controllers\PartialController::class,'getActivities']);
     Route::post('/courses',[\App\Http\Controllers\CourseController::class,'create']);
-    Route::delete('/courses',[\App\Http\Controllers\CourseController::class,'create']);
+    Route::delete('/courses',[\App\Http\Controllers\CourseController::class,'delete']);
     Route::get('/courses/{id}/partials',[\App\Http\Controllers\CourseController::class,'getPartials']);
     Route::get('/courses',[\App\Http\Controllers\CourseController::class,'show']);
     Route::put('/courses',[\App\Http\Controllers\CourseController::class,'update']);
