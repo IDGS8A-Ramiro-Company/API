@@ -15,7 +15,7 @@ class CourseController extends Controller
 
     public function show()
     {
-        return Course::with('group')->get();
+        return Course::with('group','teacher')->get();
     }
 
     public function create(CourseRequest $request)
