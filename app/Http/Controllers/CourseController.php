@@ -15,7 +15,7 @@ class CourseController extends Controller
 
     public function show()
     {
-        $courses = Course::with(['group', 'teacher', 'partials.activities'])->get();
+        $courses = Course::with(['group', 'teacher', 'partial.activity'])->get();
 
         $coursesWithProgress = $courses->map(function ($course) {
             $totalActivities = 0;
