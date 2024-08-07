@@ -33,4 +33,11 @@ class PartialController extends Controller
         $partial->save();
         return response()->json($partial, 200);
     }
+
+    public function delete(Request $request)
+    {
+        $partial = Partial::findOrFail($request->id);
+        $partial->delete();
+        return response(['success' => true, 'status' => 200]);
+    }
 }

@@ -22,4 +22,14 @@ class Partial extends Model
     {
         return $this->hasMany(Activity::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($partial) {
+            $partial->activity()->each(function ($activity) {
+                $activity->delete();
+            });
+        });
+    }
 }
