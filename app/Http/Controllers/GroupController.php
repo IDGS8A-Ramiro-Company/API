@@ -31,7 +31,10 @@ class GroupController extends Controller
     public function getCoursesGroup($groupId)
     {
         $group = Group::findOrFail($groupId);
-        $courses = $group->courses;
+        $courses = $group->courses->map(function ($course) {
+            $course->progress = $course->progress;
+            return $course;
+        });
 
         return response()->json($courses,200);
     }

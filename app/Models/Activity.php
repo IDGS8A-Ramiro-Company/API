@@ -16,7 +16,9 @@ class Activity extends Model
         'grade',
         'ready'
     ];
-
+    protected $casts = [
+        'ready' => 'boolean',
+    ];
     public function partial()
     {
         return $this->belongsTo(Partial::class);

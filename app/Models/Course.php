@@ -28,6 +28,23 @@ class Course extends Model
         return $this->hasMany(Partial::class, 'course_id','id');
     }
 
+    public function getProgressAttribute()
+    {
+        $totalActivities = 0;
+        $completedActivities = 0;
+
+        foreach ($this->partial as $partial) {
+            foreach ($partial->activity as $activity) {
+                $totalActivities++;
+                if ($activity->ready) {
+                    $completedActivities++;
+                }
+            }
+        }
+
+        return $totalActivities > 0 ? ($completedActivities / $totalActivities) * 100 : 0;
+    }
+
     protected static function boot()
     {
         parent::boot();
