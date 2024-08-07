@@ -20,7 +20,7 @@ class Course extends Model
         return $this->belongsTo(Group::class);
     }
     public function teacher(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_teacher');
     }
 
     public function partial()
