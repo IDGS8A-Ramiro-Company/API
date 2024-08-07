@@ -15,7 +15,28 @@ class CourseController extends Controller
 
     public function show()
     {
-        return Course::with(['group','teacher'])->get();
+        $courses = Course::with(['group', 'teacher', 'partials.activities'])->get();
+
+        $coursesWithProgress = $courses->map(function ($course) {
+            $totalActivities = 0;
+            $completedActivities = 0;
+
+            foreach ($course->partials as $partial) {
+                foreach ($partial->activities as $activity) {
+                    $totalActivities++;
+                    if ($activity->ready) {
+                        $completedActivities++;
+                    }
+                }
+            }
+
+            $progress = $totalActivities > 0 ? ($completedActivities / $totalActivities) * 100 : 0;
+            $course->progress = $progress;
+
+            return $course;
+        });
+
+        return response()->json($coursesWithProgress, 200);
     }
 
     public function create(CourseRequest $request)
