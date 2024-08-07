@@ -25,4 +25,15 @@ class ActivityController extends Controller
         $activity->delete();
         return response(['success' => true, 'status' => 200]);
     }
+
+    public function update(Request $request)
+    {
+        $activity = Activity::findOrFail($request->id);
+        $activity->name = $request->input('name');
+        $activity->description = $request->input('description');
+        $activity->ready=$request->input('ready');
+        $activity->save();
+        return response()->json($activity, 200);
+
+    }
 }
