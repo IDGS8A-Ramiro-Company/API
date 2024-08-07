@@ -21,8 +21,8 @@ class CourseController extends Controller
             $totalActivities = 0;
             $completedActivities = 0;
 
-            foreach ($course->partials as $partial) {
-                foreach ($partial->activities as $activity) {
+            foreach ($course->partial as $partial) {
+                foreach ($partial->activity as $activity) {
                     $totalActivities++;
                     if ($activity->ready) {
                         $completedActivities++;
