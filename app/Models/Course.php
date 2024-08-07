@@ -27,4 +27,15 @@ class Course extends Model
     {
         return $this->hasMany(Partial::class, 'course_id','id');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function($course){
+            $course->partial()->each(function($partial){
+                $partial->activity()->delete();
+            });
+            $course->partial()->delete();
+        });
+    }
 }
