@@ -23,6 +23,7 @@
     "env": {
         "APP_NAME": "laravel",
         "APP_ENV": "production",
+        "APP_KEY" : "base64:bgY0WZOeHgHxgKif8F/rL6bveNDfSoF2hbBHMKyJLr0=",
         "APP_DEBUG": "false",
         "APP_URL": "https://apiutsc.com",
         "VERCEL_DEMO_MODE": "true",
