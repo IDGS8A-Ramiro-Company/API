@@ -7,7 +7,6 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
-        "nunomaduro/collision": "^7.10",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
@@ -16,6 +15,7 @@
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
+        "nunomaduro/collision": "^7.10",
         "mockery/mockery": "^1.4.4",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
