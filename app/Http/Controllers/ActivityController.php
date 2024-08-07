@@ -18,4 +18,11 @@ class ActivityController extends Controller
         $activity = Activity::create($request->validated());
         return response()->json($activity, 200);
     }
+
+    public function delete(Request $request)
+    {
+        $activity = Activity::findOrFail($request->id);
+        $activity->delete();
+        return response(['success' => true, 'status' => 200]);
+    }
 }

@@ -38,6 +38,7 @@ Route::prefix('api/v1')->group(function () {
     Route::get('/courses',[\App\Http\Controllers\CourseController::class,'show']);
     Route::put('/courses',[\App\Http\Controllers\CourseController::class,'update']);
     Route::post('/activities',[\App\Http\Controllers\ActivityController::class,'create']);
+    Route::delete('/activities',[\App\Http\Controllers\ActivityController::class,'delete']);
     Route::get('/students',[\App\Http\Controllers\StudentController::class,'getStudents']);
     Route::put('/students/{id}',[\App\Http\Controllers\StudentController::class,'update']);
     Route::get('/teachers',[\App\Http\Controllers\TeacherController::class,'getTeachers']);
